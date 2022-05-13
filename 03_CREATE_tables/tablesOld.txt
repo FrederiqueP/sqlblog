@@ -1,0 +1,66 @@
+USE promenons;
+
+DROP TABLE IF EXISTS livreauteur;
+DROP TABLE IF EXISTS livregenre ;
+DROP TABLE IF EXISTS livre;
+DROP TABLE IF EXISTS auteur;
+DROP TABLE IF EXISTS genre;
+
+
+CREATE TABLE auteur (
+  idAut int(3) unsigned NOT NULL AUTO_INCREMENT,
+  nomAut varchar(128) NOT NULL,
+  PRIMARY KEY (idAut)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE genre (
+  idGre int(3) unsigned NOT NULL AUTO_INCREMENT,
+  nomGre varchar(128) NOT NULL,
+  PRIMARY KEY (idGre)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE livre (
+  idLiv int(3) unsigned NOT NULL AUTO_INCREMENT,
+  libLiv varchar(128) NOT NULL,
+  prix int(11) DEFAULT NULL,
+  PRIMARY KEY (idLiv)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE livre
+ADD COLUMN datLiv DATETIME AFTER libLiv;
+
+ALTER TABLE livre
+ADD INDEX(datLiv);
+
+
+CREATE TABLE livreauteur (
+  idLiv int(10) unsigned NOT NULL,
+  idAut int(10) unsigned NOT NULL,
+  UNIQUE KEY (idLiv,idAut),
+  CONSTRAINT fk_lib
+  FOREIGN KEY (idLiv)
+  REFERENCES livre(idLiv),
+  CONSTRAINT fk_auteur
+  FOREIGN KEY (idAut)
+  REFERENCES auteur(idAut)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE livreauteur (
+  idLiv int(10) unsigned NOT NULL,
+  idAut int(10) unsigned NOT NULL,
+  UNIQUE KEY (idLiv,idAut),
+  CONSTRAINT fk_lib
+  FOREIGN KEY (idLiv)
+  REFERENCES livre(idLiv),
+  CONSTRAINT fk_auteur
+  FOREIGN KEY (idAut)
+  REFERENCES auteur(idAut)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+SHOW TABLES;

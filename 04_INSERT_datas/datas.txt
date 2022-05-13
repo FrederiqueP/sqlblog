@@ -1,0 +1,51 @@
+use blog;
+
+SHOW TABLES;
+SELECT * FROM role;
+SELECT * FROM auteur;
+SELECT * FROM article;
+
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE article;
+TRUNCATE TABLE auteur;
+TRUNCATE TABLE role;
+SET FOREIGN_KEY_CHECKS = 1;
+
+INSERT INTO role (libRol) VALUES ('ADMIN');
+INSERT INTO role (libRol) VALUES ('SUPERADMIN');
+INSERT INTO role (libRol) VALUES ('AUTEUR');
+INSERT INTO role (libRol) VALUES ('VISITEUR');
+
+INSERT INTO auteur(nomAut,prenomAut,mailAut,pwdAut,dtcreAut,idRol) 
+	VALUES ('Dupont','Daniel','duda@pp.fr','$2y$10$EWqVlhIBEHHfk9Zdv8MMfuNquJZkSgKJpgNn3BRym.LiMw86wJjtS','2022-04-20 11:10:12',4);
+INSERT INTO auteur(nomAut,prenomAut,mailAut,pwdAut,dtcreAut,idRol) 
+	VALUES ('Martin','Hugo','mago@tintin.fr','$2y$10$EWqVlhIBEHHfk9Zdv8MMfuNquJZkSgKJpgNn3BRym.LiMw86wJjtS','2022-04-27 21:10:12',4);
+INSERT INTO auteur(nomAut,prenomAut,mailAut,pwdAut,dtcreAut,idRol) 
+	VALUES ('MOI','développeur','dvpt@me.fr','$2y$10$EWqVlhIBEHHfk9Zdv8MMfuNquJZkSgKJpgNn3BRym.LiMw86wJjtS','2022-04-14 08:30:20',2);
+INSERT INTO auteur(nomAut,prenomAut,mailAut,pwdAut,dtcreAut,idRol) 
+	VALUES ('Admin','administrateur','admin@admin.fr','$2y$10$EWqVlhIBEHHfk9Zdv8MMfuNquJZkSgKJpgNn3BRym.LiMw86wJjtS','2022-02-22 09:10:50',1);
+INSERT INTO auteur(nomAut,prenomAut,mailAut,pwdAut,dtcreAut,idRol) 
+	VALUES ('Morinière','Véronique','contact@veroniquemoriniere.com','$2y$10$EWqVlhIBEHHfk9Zdv8MMfuNquJZkSgKJpgNn3BRym.LiMw86wJjtS','2022-05-01 12:10:25',3);
+INSERT INTO auteur(nomAut,prenomAut,mailAut,pwdAut,dtcreAut,idRol) 
+	VALUES ('Callen','Camille','contact@noholita.com','$2y$10$EWqVlhIBEHHfk9Zdv8MMfuNquJZkSgKJpgNn3BRym.LiMw86wJjtS','2022-05-02 12:10:25',3);
+
+
+
+INSERT INTO article(libArt,resArt,txtArt,imgArt,dtcreArt,idAut) 
+	VALUES ('Tollenda','Tollenda est atque extrahenda radicitus. Contemnit enim disserendi elegantiam, confuse loquitur.','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo igitur esse beatus potest. Laboro autem non sine causa; Duo Reges: constructio interrete. Ita prorsus, inquam; Quam si explicavisset, non tam haesitaret. ','image2.jpg','2022-05-11 12:10:25',1);
+INSERT INTO article(libArt,resArt,txtArt,imgArt,dtcreArt,idAut) 
+	VALUES ('Addidisti','Addidisti ad extremum etiam indoctum fuisse.',' Addidisti ad extremum etiam indoctum fuisse. Duo Reges: constructio interrete. Tubulo putas dicere? Quam ob rem tandem, inquit, non satisfacit? Tum Piso: Quoniam igitur aliquid omnes, quid Lucius noster?','image3.jpg','2022-05-12 11:10:25',5);
+INSERT INTO article(libArt,resArt,txtArt,imgArt,dtcreArt,idAut) 
+	VALUES ('Audrey Lombard',"La plus intemporelle. Cela fait près de quinze ans qu’Audrey Lombard influence ses abonnés avec des look simples mais uniques qui vont à l’essentiel et ne laissent jamais indifférents.",
+    "Cela fait près de quinze ans qu’Audrey Lombard influence ses abonnés avec des look simples mais uniques qui vont à l’essentiel et ne laissent jamais indifférents. Il faut dire que la Parisienne n’a pas vraiment le temps pour des styles trop réfléchis. Entre ses deux enfants et son métier de vétérinaire le mot d’ordre est : efficacité. Après avoir fait un break en 2012 pour raisons personnelles, Audrey Lombard est revenue en force et a même lancé sa marque AudreyLBD il y a un an. L’influenceuse y propose une collection de basiques indémodables à son image.",
+    'image.png','2022-05-12 12:10:25',6); 
+INSERT INTO article(libArt,resArt,txtArt,imgArt,dtcreArt,idAut) 
+	VALUES ('La plus Parisienne','nouvelles ambassadrices de la tendance mode Parisienne.','Chic, glamour, naturelle et un tantinet sexy, Adenorah, de son vrai nom Anne-Laure Mais Moreau, est l’une des nouvelles ambassadrices de la tendance mode Parisienne. Si elle est originaire de la Réunion, a grandi sur la côte Basque et a réalisé ses début de blogueuse à Bordeaux en 2009, c’est bien à Paris qu’Adenorah a pris son envol et a affirmé son style. ','image4.jpg','2022-05-07 04:10:25',2);
+
+INSERT INTO article(libArt,resArt,txtArt,imgArt,dtcreArt,idAut) 
+	VALUES ('La plus créative','la reine du Do It Yourself',"À tout juste 30 ans, pas grand chose ne semble arrêter Lisa Gachet dans ses nombreux projets. Influenceuse, blogueuse mais surtout fondatrice de la marque Make My Lemonade, Lisa Gachet déborde de créativité. Ce n’est pas pour rien qu’on la surnomme la reine du Do It Yourself. En effet son univers repose essentiellement sur cette philosophie dont elle est devenue l’ambassadrice naturelle. Elle propose une mode différente et raisonnable loin des codes de la fast-fashion. ",'image5.jpg','2022-05-04 06:10:25',6);
+  
+
+
+    
+

@@ -1,0 +1,25 @@
+SHOW DATABASES;
+
+CREATE USER nomutilisateur@localhost IDENTIFIED BY motdepasse;
+
+CREATE USER 'lecteur'@'localhost' IDENTIFIED BY
+'diUhd8!74loiGt22?plm';
+
+USE mysql;
+
+SELECT User, Host
+FROM User
+WHERE User = 'lecteur';
+
+GRANT SELECT
+ON bibliotheque.*
+TO 'lecteur'@'localhost';
+
+GRANT SELECT,
+INSERT,
+UPDATE,
+DELETE
+ON bibliotheque.*
+TO 'bibliothecaire'@'localhost';
+
+FLUSH PRIVILEGES;

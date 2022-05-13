@@ -1,0 +1,45 @@
+USE blog;
+
+DROP TABLE IF EXISTS article;
+DROP TABLE IF EXISTS auteur ;
+DROP TABLE IF EXISTS role;
+
+CREATE TABLE role (
+  idRol int(3) unsigned NOT NULL AUTO_INCREMENT,
+  libRol varchar(128) NOT NULL,
+  PRIMARY KEY (idRol)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE auteur
+(
+	idAut INT(3) UNSIGNED NOT NULL AUTO_INCREMENT,
+	nomAut VARCHAR(128) NOT NULL,
+    prenomAut VARCHAR(128),
+    mailAut VARCHAR(128),
+    pwdAut VARCHAR(128),
+    dtcreAut DATETIME,
+	idRol INT(3) UNSIGNED NOT NULL,
+	PRIMARY KEY (idAut),
+	CONSTRAINT fk_role
+		FOREIGN KEY (idRol)
+		REFERENCES role(idRol),
+        INDEX (dtcreAut)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE article
+(
+	idArt INT(3) UNSIGNED NOT NULL AUTO_INCREMENT,
+	libArt VARCHAR(128) NOT NULL,
+    resArt VARCHAR(512),
+    txtArt VARCHAR(20000),
+    imgArt VARCHAR(255),
+    dtcreArt DATETIME,
+	idAut INT(3) UNSIGNED NOT NULL,
+	PRIMARY KEY (idArt),
+	CONSTRAINT fk_auteur
+		FOREIGN KEY (idAut)
+		REFERENCES auteur(idAut),
+	INDEX (dtcreArt)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+SHOW TABLES;

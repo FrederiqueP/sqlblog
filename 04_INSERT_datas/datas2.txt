@@ -1,0 +1,48 @@
+TRUNCATE TABLE auteur;
+TRUNCATE TABLE genre;
+TRUNCATE TABLE livre;
+TRUNCATE TABLE livreauteur;
+TRUNCATE TABLE livregenre;
+
+INSERT INTO auteur(nomAut) VALUES ('Molières');
+INSERT INTO auteur(nomAut) VALUES ('Goscinny');
+INSERT INTO auteur(nomAut) VALUES ('Lochmann');
+INSERT INTO auteur(nomAut) VALUES ('Leclercq');
+INSERT INTO auteur(nomAut) VALUES ('Chalandon');
+
+INSERT INTO genre(nomGre) VALUES ('BD');
+INSERT INTO genre(nomGre) VALUES ('Aventure');
+INSERT INTO genre(nomGre) VALUES ('Roman');
+INSERT INTO genre(nomGre) VALUES ('Théâtre');
+
+INSERT INTO livre(libLiv, idAut, idGre) VALUES ('Astérix', 2, 1);
+INSERT INTO livre(libLiv, idAut, idGre) VALUES ('Obélix', 2, 1);
+INSERT INTO livre(libLiv, idAut, idGre) VALUES ('Toucher le vertige', 3, 2);
+INSERT INTO livre(libLiv, idAut, idGre) VALUES ('La vie solide', 3, 2);
+INSERT INTO livre(libLiv, idAut, idGre) VALUES ('Ampoules et vers luisants', 4, 2);
+INSERT INTO livre(libLiv, idAut, idGre) VALUES ('Profession du père', 5, 3);
+INSERT INTO livre(libLiv, idAut, idGre) VALUES ('Mon traître', 5, 3);
+INSERT INTO livre(libLiv, idAut, idGre) VALUES ('Les fourberies de Scapin', 1, 4);
+
+INSERT INTO livregenre(idLiv, idGre) 
+VALUES 
+(1, 1),
+(2, 1),
+(3, 3),
+(4, 2),
+(5, 2),
+(6, 3),
+(7, 3),
+(8, 4);
+
+INSERT INTO livreauteur(idLiv, idAut)
+VALUES 
+(1, 2),
+(2, 2),
+(3, 3),
+(4, 3),
+(5, 4),
+(6, 5),
+(7, 5),
+(8, 1);
+
